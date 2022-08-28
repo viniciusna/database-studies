@@ -544,4 +544,13 @@ SELECT first_name, last_name FROM directors WHERE nationality IN ('British', 'Fr
 
 -- #########################################################################################################################
 
+SELECT * FROM directors WHERE nationality = 'American' ORDER BY date_of_birth;
+SELECT DISTINCT nationality FROM directors;
+SELECT first_name, last_name, date_of_birth FROM actors WHERE gender = 'F' ORDER BY date_of_birth DESC LIMIT 10;
+
+-- #########################################################################################################################
+
+SELECT * FROM movie_revenues WHERE international_takings IS NOT NULL ORDER BY international_takings DESC LIMIT 3;
+SELECT CONCAT_WS(' ', first_name, last_name) AS full_name FROM directors;
+SELECT * FROM actors WHERE first_name IS NULL OR date_of_birth IS NULL;
 
