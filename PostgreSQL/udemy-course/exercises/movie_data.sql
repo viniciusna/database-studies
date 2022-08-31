@@ -554,3 +554,19 @@ SELECT * FROM movie_revenues WHERE international_takings IS NOT NULL ORDER BY in
 SELECT CONCAT_WS(' ', first_name, last_name) AS full_name FROM directors;
 SELECT * FROM actors WHERE first_name IS NULL OR date_of_birth IS NULL;
 
+-- #########################################################################################################################
+
+SELECT COUNT(*) FROM actors WHERE date_of_birth > '1970-01-01';
+SELECT MIN(domestic_takings), MAX(domestic_takings) FROM movie_revenues;
+SELECT SUM(movie_length) FROM movies WHERE age_certificate = '15';
+SELECT COUNT(*) FROM directors WHERE nationality = 'Japanese';
+SELECT AVG(movie_length) FROM movies WHERE movie_lang = 'Chinese';
+
+-- #########################################################################################################################
+
+SELECT nationality, COUNT(nationality) FROM directors GROUP BY nationality;
+SELECT movie_lang, age_certificate, SUM(movie_length) FROM movies GROUP BY movie_lang, age_certificate;
+SELECT movie_lang, SUM(movie_length) FROM movies GROUP BY movie_lang HAVING SUM(movie_length) > 500; 
+
+-- #########################################################################################################################
+

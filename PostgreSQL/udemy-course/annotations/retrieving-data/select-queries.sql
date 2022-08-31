@@ -48,7 +48,7 @@
 
 -- "ORDER BY" é para ordenar a listagem dos dados seguindo a ordem crescente dos valores de uma coluna (seja ordem alfabética, numérica ou datas)
 
--- SELECT [coluna1], [coluna2], ... FROM [tabela] ORDER BY [coluna que estará em ordem];
+-- SELECT [coluna1], [coluna2], ... FROM [tabela] ORDER BY [coluna que estará em ordem], [segunda coluna que estará em ordem], ...;
 
 -- Para a ordem ser decrescente basta colocar "DESC" no final dessa clásula, "ORDER BY [coluna que estará em ordem] DESC"
 -- As colunas com valor "NULL" são considerados os últimos na ordenação ascendente e portanto os primeiros na descedente.
