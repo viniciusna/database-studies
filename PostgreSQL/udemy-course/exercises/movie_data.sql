@@ -528,7 +528,7 @@ INSERT INTO movie_actors (actor_id, movie_id) VALUES ('1','52'),
     ('147','9'),
     ('147','16');
 
-
+INSERT INTO directors (first_name, last_name, date_of_birth, nationality) VALUES ('Christopher', 'Nolan', '1970-07-30', 'British');
 -- #########################################################################################################################
 
 SELECT movie_name, release_date FROM movies;
@@ -570,3 +570,27 @@ SELECT movie_lang, SUM(movie_length) FROM movies GROUP BY movie_lang HAVING SUM(
 
 -- #########################################################################################################################
 
+SELECT d.first_name, d.last_name, mo.movie_name, mo.release_date
+FROM directors d JOIN movies mo USING (director_id)
+WHERE mo.movie_lang IN ('Chinese', 'Korean', 'Japanese');
+
+SELECT mo.movie_name, mo.release_date, mr.international_takings
+FROM movies mo JOIN movie_revenues mr USING (movie_id)
+WHERE mo.movie_lang = 'English';
+
+SELECT mo.movie_name, mr.domestic_takings, mr.international_takings
+FROM movies mo JOIN movie_revenues mr USING (movie_id)
+WHERE mr.domestic_takings IS NULL OR mr.international_takings IS NULL
+ORDER BY mo.movie_name;
+
+-- #########################################################################################################################
+
+SELECT d.first_name, d.last_name, mo.movie_name, mo.age_certificate
+FROM directors d LEFT JOIN movies mo USING (director_id)
+WHERE d.nationality = 'British';
+
+SELECT d.first_name, d.last_name, COUNT(mo.movie_name)
+FROM directors d LEFT JOIN movies mo USING (director_id)
+GROUP BY d.director_id;
+
+-- #########################################################################################################################
