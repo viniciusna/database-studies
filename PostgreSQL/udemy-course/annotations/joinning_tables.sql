@@ -31,3 +31,17 @@
 
 -- Ao adicionar mais clásulas a query com algum JOIN, deve-se escrever os nomes das colunas com a sua respectiva tabela na query, usando o formato
 -- "nome_tabela.nome_coluna"
+
+-- ################################################################################################################################################
+
+-- Podemos "unir" queries e mesclar dados de tabelas diferentes em uma única tabela
+
+-- "UNION" faz a união dos dados resultantes de duas queries, basta colocar a clásula "UNION" entre as duas queries, por exemplo
+
+-- SELECT [coluna1], [coluna2], ... FROM [tabela1]
+-- UNION
+-- SELECT [coluna1], [coluna2], ... FROM [tabela2]
+
+-- Ambas as queries devem estar selecionando a mesma quantidade de colunas, o "merge" será feito usando a ordem da disposição das colunas nas
+-- queries e portanto devem ter o mesmo tipo de dado. A clásula "UNION" também irá remover as linhas duplicadas, se não quiser removê-las
+-- é só usar "UNION ALL"

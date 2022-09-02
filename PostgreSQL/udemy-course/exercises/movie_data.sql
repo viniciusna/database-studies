@@ -594,3 +594,32 @@ FROM directors d LEFT JOIN movies mo USING (director_id)
 GROUP BY d.director_id;
 
 -- #########################################################################################################################
+
+SELECT ac.first_name, ac.last_name FROM actors ac
+JOIN movie_actors USING (actor_id)
+JOIN movies USING (movie_id)
+JOIN directors d USING (director_id)
+WHERE d.first_name = 'Wes' AND d.last_name = 'Anderson';
+
+SELECT d.first_name, d.last_name, SUM(mr.domestic_takings) AS total_dom_takings
+FROM directors d JOIN movies USING (director_id)
+JOIN movie_revenues mr USING (movie_id)
+WHERE mr.domestic_takings IS NOT NULL
+GROUP BY d.first_name, d.last_name
+ORDER BY total_dom_takings DESC;
+
+-- #########################################################################################################################
+
+SELECT first_name, last_name, date_of_birth FROM directors
+UNION ALL
+SELECT first_name, last_name, date_of_birth FROM actors
+ORDER BY date_of_birth;
+
+SELECT first_name, last_name, date_of_birth FROM directors
+WHERE date_of_birth BETWEEN '1960-01-01' AND '1969-12-31'
+UNION ALL
+SELECT first_name, last_name, date_of_birth FROM actors
+WHERE date_of_birth BETWEEN '1960-01-01' AND '1969-12-31'
+ORDER BY last_name;
+
+-- #########################################################################################################################
