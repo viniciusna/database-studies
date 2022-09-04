@@ -623,3 +623,16 @@ WHERE date_of_birth BETWEEN '1960-01-01' AND '1969-12-31'
 ORDER BY last_name;
 
 -- #########################################################################################################################
+
+SELECT first_name, last_name, date_of_birth FROM directors
+INTERSECT
+SELECT first_name, last_name, date_of_birth FROM actors;
+
+SELECT first_name FROM actors
+WHERE gender = 'M'
+EXCEPT
+SELECT first_name FROM directors
+WHERE nationality = 'British';
+
+-- #########################################################################################################################
+

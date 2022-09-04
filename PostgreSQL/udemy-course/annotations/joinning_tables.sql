@@ -45,3 +45,8 @@
 -- Ambas as queries devem estar selecionando a mesma quantidade de colunas, o "merge" será feito usando a ordem da disposição das colunas nas
 -- queries e portanto devem ter o mesmo tipo de dado. A clásula "UNION" também irá remover as linhas duplicadas, se não quiser removê-las
 -- é só usar "UNION ALL"
+
+-- Seguindo a síntaxe de "UNION", temos outras clásulas que fazem essa união de dados mas com funcionalidades diferentes, ssão eles
+
+-- INTERSECT -> Vai pegar as linhas que estejam em ambas as tabelas
+-- EXCEPT -> Vai pegar as linhas que estão na primeira tabela e que não tenha uma igual na segunda tabela
