@@ -11,4 +11,3 @@
 -- A query do exemplo acima é um exemplo de subquerie descorrelacionadas, um exemplo de query correlacionada é
 
 -- SELECT t1.coluna1, t1.coluna2 FROM table1 t1 WHERE t1.coluna3 > (SELECT MAX(colunax) FROM table2 WHERE t2.colunax = t1.coluna4);
-

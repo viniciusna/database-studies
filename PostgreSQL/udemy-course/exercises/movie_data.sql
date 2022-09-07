@@ -651,3 +651,16 @@ WHERE movie_id IN
 WHERE domestic_takings >
 (SELECT AVG(domestic_takings) FROM movie_revenues));
 
+-- #########################################################################################################################
+
+SELECT first_name, last_name, date_of_birth FROM actors ac1
+WHERE date_of_birth = 
+(SELECT MIN(date_of_birth) FROM actors ac2
+WHERE ac1.gender = ac2.gender);
+
+SELECT movie_name, movie_length, age_certificate FROM movies mo1
+WHERE movie_length >
+(SELECT AVG(movie_length) FROM movies mo2
+WHERE mo1.age_certificate = mo2.age_certificate);
+
+-- #########################################################################################################################
