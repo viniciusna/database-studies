@@ -15,5 +15,12 @@ FROM directors
 
 -- #########################################################################################################################
 
+SELECT SUBSTRING(movie_name, 1, 6), SUBSTRING(release_date::TEXT, 1, 4)
+FROM movies;
 
+SELECT SUBSTRING(first_name, 1, 1), last_name 
+FROM actors WHERE SPLIT_PART(date_of_birth::TEXT, '-', 2) = '05';
 
+UPDATE movies
+SET movie_lang = SUBSTRING(movie_lang, 1, 3)
+WHERE movie_lang = 'English' AND age_certificate = '18';
